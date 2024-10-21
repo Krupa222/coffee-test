@@ -19,6 +19,9 @@ public class CoffeeBag {
     @JoinColumn(name = "weight_id")
     private BagWeight weight;
 
+    @Column(name = "bag_number", nullable = false)
+    private Long bagNumber;
+
     @Column(name = "current_weight", nullable = false)
     private BigDecimal currentWeight;
 
