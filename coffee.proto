@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.test.coffee";
+option java_outer_classname = "ProductProto";
+
+package coffee;
+
+message ProductRequest {
+    string country = 1;   // Страна происхождения зерна
+    string type = 2;      // Сорт зерна
+    float weightIn = 3;   // Вес до обжарки (кг)
+    float weightOut = 4;  // Вес после обжарки (кг)
+    int32 team = 5;       // Номер бригады
+    int32 bagNumber = 6;       // Номер бригады
+}
+
+// Ответ на запрос обжарки
+message ProductResponse {
+    string message = 1;          // Сообщение о результате
+}
+
+// gRPC-сервис для обработки обжарки зерна
+service ProductService {
+    // Метод, который принимает информацию об обжарке
+    rpc Production(ProductRequest) returns (ProductResponse);
+}
